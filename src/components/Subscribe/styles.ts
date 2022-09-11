@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { media } from "../../ui/media";
 import { typography } from "../../ui/typography";
-
 const StyledSubscribe = styled.section`
   max-width: 1920px;
   width: 100%;
@@ -39,15 +38,16 @@ const SubscribeSubtitle = styled.p`
     margin-bottom: 24px;
   }
 `;
-
 const SubscribeForm = styled.div`
   display: flex;
   background-color: ${Colors.WHITE};
   border-radius: 2px;
   ${media.mobile} {
-    display: block;
+    flex-direction: column;
+    row-gap: 10px;
   }
 `;
+
 const SubscribeInput = styled.input`
   max-width: 845px;
   width: 100%;
@@ -56,10 +56,10 @@ const SubscribeInput = styled.input`
     max-width: 608px;
   }
   ${media.mobile} {
-    max-width: 224px;
-    margin-bottom: 24px;
+    max-width: 254px;
   }
 `;
+
 const SubscribeButton = styled.button`
   ${typography.button};
   padding: 16px 40px;
@@ -67,7 +67,7 @@ const SubscribeButton = styled.button`
     max-width: 608px;
   }
   ${media.mobile} {
-    max-width: 224px;
+    width: 100%;
     padding: 16px 57px;
   }
 `;
