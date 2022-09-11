@@ -1,10 +1,12 @@
-import React from 'react';
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./router/AppRouter";
+import GlobalStyles from "./ui/GlobalStyles";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <GlobalStyles />
+      <AppRouter />
+    </BrowserRouter>
   );
-}
-
-export default App;
+};
