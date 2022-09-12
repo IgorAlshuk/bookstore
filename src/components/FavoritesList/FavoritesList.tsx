@@ -1,12 +1,17 @@
-import { useAppSelector } from "../../store/hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/hooks";
 import { getUserInfo } from "../../store/selectors/userSelectors";
-import { Container } from "../MainTemplate/styles";
+import { removeFavorite } from "../../store/slices/userSlice";
+import { IBook } from "../../store/types";
+
+import { HeardRemove } from "../HeardRemove/HeardRemove";
 import {
+  Container,
   DescriptionContainer,
   FavoritesImg,
   FavoritesPrice,
   FavoritesSubtitle,
   FavoritesTitle,
+  RemoveContainer,
   StyledFavoritesList,
   StyledLink,
 } from "./styles";
@@ -14,6 +19,10 @@ import {
 export const FavoritesList = () => {
   const { favorites } = useAppSelector(getUserInfo);
 
+  const dispatch = useAppDispatch();
+  const handleRemoveFavorite = (book: IBook) => {
+    dispatch(removeFavorite(book));
+  };
   return (
     <StyledFavoritesList>
       {favorites.map((book) => {
@@ -25,10 +34,16 @@ export const FavoritesList = () => {
                 <FavoritesTitle>{book.title}</FavoritesTitle>
                 <FavoritesSubtitle>{book.subtitle}</FavoritesSubtitle>
                 <FavoritesPrice>
-                  {book.price === "$0.00" ? "Free for you" : book.price}
+                  {book.price === "$0.00" ? "Not Available" : book.price}
                 </FavoritesPrice>
               </DescriptionContainer>
             </StyledLink>
+            <RemoveContainer
+              type="button"
+              onClick={() => handleRemoveFavorite(book)}
+            >
+              <HeardRemove />
+            </RemoveContainer>
           </Container>
         );
       })}
