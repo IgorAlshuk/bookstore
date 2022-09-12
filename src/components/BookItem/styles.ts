@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
+
 const StyledBookItem = styled.li`
   display: -webkit-box;
   max-width: 352px;
@@ -20,15 +21,18 @@ const StyledBookItem = styled.li`
     bottom: 20px;
   }
 `;
+
 const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
 `;
+
 const StyledImg = styled.img`
   max-width: 226px;
   width: 100%;
   margin: 0 63px;
 `;
+
 const BookTitle = styled.p`
   ${typography.H3};
   display: -webkit-box;
@@ -40,11 +44,13 @@ const BookTitle = styled.p`
   margin-bottom: 15px;
   padding: 0 10px;
 `;
+
 const BookSubtitle = styled.p`
   ${typography.B2};
   margin-bottom: 40px;
   padding: 0 10px;
 `;
+
 const BookPrice = styled.p`
   ${typography.H3};
   align-content: flex-end;
@@ -52,7 +58,7 @@ const BookPrice = styled.p`
   padding: 0 10px 10px;
 `;
 
-const FavoritesContainer = styled.button`
+const HeardContainer = styled.button`
   position: absolute;
   right: 0;
   top: 0;
@@ -65,5 +71,5 @@ export {
   BookSubtitle,
   BookPrice,
   StyledImg,
-  FavoritesContainer,
+  HeardContainer,
 };

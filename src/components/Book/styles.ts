@@ -1,12 +1,20 @@
 import styled from "styled-components";
-import { Down } from "../../assets/svg";
+import { Down, Facebook, Twitter } from "../../assets";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
-import {Link} from 'react-scroll'
+import { Link } from "react-scroll";
+import { media } from "../../ui/media";
+
+interface ITab {
+  isActive: boolean;
+}
 
 const StyledBook = styled.div`
   display: flex;
   margin-bottom: 72px;
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const BookImageContainer = styled.div`
@@ -14,7 +22,19 @@ const BookImageContainer = styled.div`
   width: 100%;
   padding: 61px 0px;
   margin-right: 128px;
-  background-color: ${Colors.orange};
+  position: relative;
+  background-color: ${Colors.ORANGE};
+  ${media.tablet} {
+    max-width: 820px;
+    margin-right: 0;
+  }
+`;
+
+const HeardContainer = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
 `;
 
 const BookImage = styled.img`
@@ -25,7 +45,10 @@ const BookImage = styled.img`
 const BookInfoContainer = styled.div`
   max-width: 448px;
   width: 100%;
-  border-top: 1px solid ${Colors.gray};
+  border-top: 1px solid ${Colors.GRAY};
+  ${media.tablet} {
+    max-width: 820px;
+  }
 `;
 const RateContainer = styled.div`
   display: flex;
@@ -39,7 +62,9 @@ const BookPrice = styled.h2`
   ${typography.H2}
 `;
 
-const BookRating = styled.div``;
+const BookRating = styled.div`
+  margin-right: 20px;
+`;
 
 const InfoList = styled.div`
   display: grid;
@@ -55,11 +80,19 @@ const Parameters = styled.p`
 const Attribute = styled.p`
   ${typography.B1}
   line-height: 20px;
+  ${media.mobile} {
+    ${media.mobile} {
+      width: 190px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
 `;
 
 const AddButton = styled.button`
   ${typography.button}
   width: 100%;
+  margin: 0 auto 20px;
 `;
 
 const ButtonDetails = styled.button`
@@ -67,6 +100,16 @@ const ButtonDetails = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  cursor: pointer;
+`;
+
+const PreviewButton = styled.a`
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: ${Colors.PRIMARY};
   cursor: pointer;
 `;
 
@@ -78,21 +121,28 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${Colors.primary};
+  color: ${Colors.PRIMARY};
 `;
 
 const TabContainer = styled.div`
   display: grid;
   column-gap: 20px;
-  grid-template-columns: repeat(3, 160px);
+  grid-template-columns: repeat(2, 160px);
   width: 100%;
   margin-bottom: 48px;
-  border-bottom: 1px solid ${Colors.gray};
+  border-bottom: 1px solid ${Colors.GRAY};
+  ${media.mobile} {
+    grid-template-columns: repeat(2, 100px);
+    column-gap: 10px;
+  }
 `;
 
-const Tab = styled.button`
+const Tab = styled.button<ITab>`
   ${typography.tab}
-  padding: 0 40px 24px;
+  padding: 0 40px 20px;
+  ${media.mobile} {
+    padding: 10px;
+  }
 `;
 
 const Description = styled.div`
@@ -105,7 +155,46 @@ const DetailsList = styled.div`
   column-gap: 90px;
   row-gap: 15px;
   margin-bottom: 30px;
+  ${media.mobile} {
+    column-gap: 0;
+  }
 `;
+
+const Container = styled.div`
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  ${media.tablet} {
+    max-width: 688px;
+  }
+`;
+
+const TabPanel = styled.div`
+  min-height: 70px;
+  ${typography.B1}
+  color: ${Colors.PRIMARY};
+  margin-bottom: 48px;
+  ${media.mobile} {
+    min-height: 193px;
+  }
+`;
+
+const Icons = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 30px);
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+const IconsItem = styled.a`
+  margin: 0 auto;
+  padding: 10px;
+  border-bottom: 1px solid ${Colors.RED};
+`;
+
+const IconFacebook = styled(Facebook)``;
+const IconTwitter = styled(Twitter)``;
 
 export {
   StyledBook,
@@ -126,4 +215,12 @@ export {
   Tab,
   Description,
   DetailsList,
+  Container,
+  PreviewButton,
+  HeardContainer,
+  TabPanel,
+  IconTwitter,
+  IconFacebook,
+  IconsItem,
+  Icons,
 };

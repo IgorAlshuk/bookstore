@@ -8,9 +8,11 @@ import {
   SliderTitle,
   SliderPrice,
 } from "./styles";
+
 interface IBookSlider {
   books: INewBookApi[];
 }
+
 export const BookSlider = ({ books }: IBookSlider) => {
   const settings = {
     dots: false,
@@ -18,25 +20,40 @@ export const BookSlider = ({ books }: IBookSlider) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
     autoplaySpeed: 1000,
-    cssEase: "linear",
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1020,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
   return (
     <>
       <Title>Limited-time offers</Title>
       <Slider {...settings}>
         {books.slice(7, 18).map((book) => {
           return (
-            <SlideContainer>
+            <SlideContainer key={book.isbn13}>
               <StyledLink to={`/bookstore/books/${book.isbn13}`}>
                 <CustomSlide>
                   <img src={book.image} alt={book.title} />
                   <div>
                     <SliderTitle>{book.title}</SliderTitle>
                     <SliderPrice>
-                      {book.price === "$0.00" ? "Free for you" : book.price}
+                      {book.price === "$0.00" ? "Not Available" : book.price}
                     </SliderPrice>
                   </div>
                 </CustomSlide>

@@ -3,11 +3,8 @@ import { media } from "../../ui/media";
 import { typography } from "../../ui/typography";
 
 export const SlideContainer = styled.div`
-  margin-bottom: 150px;
+  margin-bottom: 110px;
   ${media.tablet} {
-    margin-bottom: 80px;
-  }
-  ${media.mobile} {
     margin-bottom: 80px;
   }
 `;
@@ -24,6 +21,7 @@ export const CustomSlide = styled.div`
   border-radius: 20px;
   cursor: pointer;
 `;
+
 export const SliderTitle = styled.h3`
   margin-bottom: 20px;
   padding: 0 20px;
