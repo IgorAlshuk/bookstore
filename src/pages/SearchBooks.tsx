@@ -1,40 +1,41 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
-import { List } from "../components/List/List";
+import { BookList } from "../components/BookList/BookList";
 import BackButton from "../components/BackButton/BackButton";
 import { Title } from "../components/Title/Title";
-import { bookApi } from "../services/bookService";
-import { ISearchBooksApi } from "../services/types";
-import { media } from "../ui/media";
+import Pagination from "../components/Pagination/Pagination";
+import { useAppSelector, useAppDispatch } from "../store/hooks/hooks";
+import { getBooks, getBooksStatus } from "../store/selectors/bookSelectors";
+import { fetchBooksBySearch } from "../store/slices/bookSlice";
+import { Loading } from "../components/Loading/Loading";
 
 export const SearchBooks = () => {
   const { title = "", page = "" } = useParams();
-
-  const [searchResult, setSearchResult] = useState<ISearchBooksApi>();
+  const { books } = useAppSelector(getBooks);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    bookApi.getBooksBySearch(title, page).then((books) => {
-      setSearchResult(books);
-    });
-  }, [title, page]);
+    dispatch(fetchBooksBySearch({ title, page }));
+  }, [title, dispatch, page]);
 
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(-1);
   };
-  <Container>
-  <BackButton onClick={handleBack} />
-  <Title>"{title}" Search results</Title>
-  <List books={searchResult?.books} />
-</Container>
-);
-};
 
-const Container = styled.div`
-max-width: 1120px;
-width: 100%;
-margin: 0 auto;
-${media.tablet} {
-    max-width: 688px;
+  const status = useAppSelector(getBooksStatus);
+  if (status === "loading") {
+    return <Loading />;
   }
-`;
+  if (status === "error") {
+    return <Title>We have some Problems. See u later 😒</Title>;
+  }
+
+  return (
+    <>
+      <BackButton onClick={handleBack} />
+      <Title> Search results: "{title}"</Title>
+      <BookList books={books ? books : []} />
+      <Pagination />
+    </>
+  );
+};

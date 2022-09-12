@@ -1,28 +1,34 @@
-import { useEffect, useState } from "react";
-import { List } from "../components/List/List";
-import { Container } from "../components/Subscribe/styles";
+import { useEffect } from "react";
+import { BookSlider } from "../components/BookSlider/BookSlider";
+import { BookList } from "../components/BookList/BookList";
 import Subscribe from "../components/Subscribe/Subscribe";
 import { Title } from "../components/Title/Title";
-import { bookApi } from "../services/bookService";
-import { INewBooksApi } from "../services/types";
+import { useAppDispatch, useAppSelector } from "../store/hooks/hooks";
+import { fetchBook } from "../store/slices/bookSlice";
+import { getBooks, getBooksStatus } from "../store/selectors/bookSelectors";
+import { Loading } from "../components/Loading/Loading";
 
 export const Home = () => {
-  const [newBooks, setNewBooks] = useState<INewBooksApi>({
-    books: [],
-    error: "",
-    total: "",
-  });
-
+  const dispatch = useAppDispatch();
+  const { books } = useAppSelector(getBooks);
   useEffect(() => {
-    bookApi.getNewBooks().then((books) => {
-      setNewBooks(books);
-    });
-  }, []);
+    dispatch(fetchBook());
+  }, [dispatch]);
+
+  const status = useAppSelector(getBooksStatus);
+  if (status === "loading") {
+    return <Loading />;
+  }
+  if (status === "error") {
+    return <Title>We have some Problems. See u later 😒</Title>;
+  }
+
   return (
-    <Container>
+    <>
+      <BookSlider books={books} />
       <Title>New Releases Books</Title>
-      <List books={newBooks.books} />
+      <BookList books={books} />
       <Subscribe />
-    </Container>
+    </>
   );
 };

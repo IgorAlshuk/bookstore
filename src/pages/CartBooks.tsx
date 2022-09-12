@@ -1,24 +1,23 @@
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton/BackButton";
-import { Profile } from "../components/Profile/Profile";
+import { CartList } from "../components/CartList/CartList";
 import { Title } from "../components/Title/Title";
 import { routes } from "../router/routes";
 import { RootState } from "../store/store";
 
-export const Account = () => {
-  const { isAuth } = useSelector(({ user }: RootState) => user);
+export const CartBooks = () => {
   const navigate = useNavigate();
-
   const handleBack = () => {
     navigate(-1);
   };
+  const { isAuth } = useSelector(({ user }: RootState) => user);
   if (isAuth) {
     return (
       <>
         <BackButton onClick={handleBack} />
-        <Title>Account</Title>
-        <Profile />
+        <Title>Your cart</Title>
+        <CartList />
       </>
     );
   }
