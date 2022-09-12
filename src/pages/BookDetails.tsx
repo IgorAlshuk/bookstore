@@ -1,33 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { bookApi } from "../services/bookService";
-import { IDetailsBookApi } from "../services/types";
 import BackButton from "../components/BackButton/BackButton";
 import { Title } from "../components/Title/Title";
 import Book from "../components/Book/Book";
-import styled from "styled-components";
-import { media } from "../ui/media";
+import { useAppSelector, useAppDispatch } from "../store/hooks/hooks";
+import { getBooks, getBooksStatus } from "../store/selectors/bookSelectors";
+import { fetchBookDetails } from "../store/slices/bookSlice";
+import { Loading } from "../components/Loading/Loading";
 
 export const BookDetails = () => {
   const { id = "" } = useParams();
-  const [detailsBook, setBookDetails] = useState<IDetailsBookApi>({
-    authors: "",
-    desc: "",
-    error: "",
-    image: "",
-    isbn10: "",
-    isbn13: "",
-    language: "",
-    pages: "",
-    pdf: {},
-    price: "",
-    publisher: "",
-    rating: "",
-    subtitle: "",
-    title: "",
-    url: "",
-    year: "",
-  });
+  const { result } = useAppSelector(getBooks);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBookDetails(id));
+  }, [id, dispatch]);
 
   const navigate = useNavigate();
 
@@ -35,26 +23,18 @@ export const BookDetails = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    bookApi.getBookDetails(id).then((book) => {
-      setBookDetails(book);
-    });
-  }, [id]);
-
+  const status = useAppSelector(getBooksStatus);
+  if (status === "loading") {
+    return <Loading />;
+  }
+  if (status === "error") {
+    return <Title>We have some Problems. See u later 😒</Title>;
+  }
   return (
-    <Container>
+    <>
       <BackButton onClick={handleBack} />
-      <Title>{detailsBook.title}</Title>
-      <Book book={detailsBook} />
-    </Container>
+      <Title>{result.title}</Title>
+      <Book book={result} />
+    </>
   );
 };
-const Container = styled.div`
-  max-width: 1120px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
-  ${media.tablet} {
-    max-width: 688px;
-  }
-`;
