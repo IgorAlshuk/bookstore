@@ -39,7 +39,7 @@ export const Profile = () => {
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Subtitle>Profile</Subtitle>
+        <Subtitle>PROFILE</Subtitle>
         <FormContainer>
           <DataContainer>
             <Lable>Name</Lable>

@@ -42,12 +42,12 @@ export const BookSlider = ({ books }: IBookSlider) => {
 
   return (
     <>
-      <Title>Limited-time offers</Title>
+      <Title>hot offer 🥵</Title>
       <Slider {...settings}>
         {books.slice(7, 18).map((book) => {
           return (
             <SlideContainer key={book.isbn13}>
-              <StyledLink to={`/bookstore/books/${book.isbn13}`}>
+              <StyledLink to={`/books/${book.isbn13}`}>
                 <CustomSlide>
                   <img src={book.image} alt={book.title} />
                   <div>

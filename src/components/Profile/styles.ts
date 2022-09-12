@@ -34,8 +34,7 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 32px;
-  }
-  ${media.mobile} {
+  }  ${media.mobile} {
     padding: 12px 0px 12px 5px;
   }
 `;

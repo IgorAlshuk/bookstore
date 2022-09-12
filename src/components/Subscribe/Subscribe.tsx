@@ -16,8 +16,7 @@ const Subscribe = () => {
         <SubscribeBlock>
           <SubscribeTitle>Subscribe to Newsletter</SubscribeTitle>
           <SubscribeSubtitle>
-            Be the first to know about new IT books, upcoming releases,
-            exclusive offers and more.
+			 You will be the first to know 📚
           </SubscribeSubtitle>
           <SubscribeForm>
             <SubscribeInput placeholder="Your email" />

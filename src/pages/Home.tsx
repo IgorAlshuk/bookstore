@@ -20,13 +20,13 @@ export const Home = () => {
     return <Loading />;
   }
   if (status === "error") {
-    return <Title>We have some Problems. See u later 😒</Title>;
+    return <Title>sorry for some problems 😒</Title>;
   }
 
   return (
     <>
       <BookSlider books={books} />
-      <Title>New Releases Books</Title>
+      <Title>huge library at your disposal</Title>
       <BookList books={books} />
       <Subscribe />
     </>
