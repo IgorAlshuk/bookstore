@@ -16,7 +16,7 @@ export const CartBooks = () => {
     return (
       <>
         <BackButton onClick={handleBack} />
-        <Title>Your cart</Title>
+        <Title>shopping cart</Title>
         <CartList />
       </>
     );

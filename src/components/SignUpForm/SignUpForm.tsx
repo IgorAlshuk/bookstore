@@ -73,7 +73,7 @@ export const SignUpForm = () => {
           />
         </LoginPass>
         {isSignupError ? (
-          <ErrorMassage>Check the correctness of the data</ErrorMassage>
+          <ErrorMassage>data validation</ErrorMassage>
         ) : (
           ""
         )}

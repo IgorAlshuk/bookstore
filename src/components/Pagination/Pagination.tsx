@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { bookApi } from "../../services/bookService";
+import { bookApi } from "../../services/bookServices";
 import { ISearchBooksApi } from "../../services/types";
 import { CurrentPage, Page, Pages, StyledPagination, Button } from "./styles";
 
@@ -11,18 +11,18 @@ const Pagination = () => {
 
   const handleNextButton = () => {
     if (searchResult?.total && +page < Math.ceil(+searchResult?.total) / 10) {
-      navigation(`/bookstore/search/${title}/${Number(page) + 1}`);
+      navigation(`/search/${title}/${Number(page) + 1}`);
     }
   };
 
   const handlePrevButton = () => {
     if (+page > 1) {
-      navigation(`/bookstore/search/${title}/${Number(page) - 1}`);
+      navigation(`/search/${title}/${Number(page) - 1}`);
     }
   };
 
   useEffect(() => {
-    bookApi.getBooksBySearch(title, page).then((books) => {
+    bookApi.getBooksBySearch(title, page).then((books: SetStateAction<ISearchBooksApi | undefined>) => {
       setSearchResult(books);
     });
   }, [title, page]);
