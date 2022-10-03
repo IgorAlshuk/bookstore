@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.js": "/bookstore/static/js/main.34a82970.js",
+    "static/media/logo.svg": "/bookstore/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
+    "static/media/back.svg": "/bookstore/static/media/back.cfb3190c5eda02964eb88c799f100638.svg",
+    "static/media/star-black.svg": "/bookstore/static/media/star-black.584447b874c1c3b35e3e06140759204c.svg",
+    "static/media/star-light.svg": "/bookstore/static/media/star-light.76836d8f166eef7aefc33d65bded1eb9.svg",
+    "static/media/like.svg": "/bookstore/static/media/like.28220c581538742fc7469c10d8a9e269.svg",
+    "static/media/heart.svg": "/bookstore/static/media/heart.82e958b37372985dfdcd3027f15bd670.svg",
+    "static/media/twitter.svg": "/bookstore/static/media/twitter.d33914e082f58756d0e4c35be630972b.svg",
+    "static/media/delete.svg": "/bookstore/static/media/delete.49bbafc3c74c2907de85d95c687c1030.svg",
+    "static/media/shopping-bag.svg": "/bookstore/static/media/shopping-bag.291776166f59fef865d350aaa5d72385.svg",
+    "index.html": "/bookstore/index.html",
+    "static/media/arrow-down.svg": "/bookstore/static/media/arrow-down.8e4d525ccfcf6c02b15662397cf3b1ac.svg",
+    "static/media/search.svg": "/bookstore/static/media/search.fb7c71339a4b264dfb3e9806f3b103eb.svg",
+    "static/media/user.svg": "/bookstore/static/media/user.f95ce053779a6201d74bbfa54c39de4c.svg",
+    "static/media/plus.svg": "/bookstore/static/media/plus.204449cae44eaad0b297e2752c973f63.svg",
+    "static/media/facebook.svg": "/bookstore/static/media/facebook.e6b5d31c7e942f2458bd52883692ac16.svg",
+    "static/media/red-circle.svg": "/bookstore/static/media/red-circle.66ea1c5f085759594681dee1bfbc508e.svg",
+    "static/media/minus.svg": "/bookstore/static/media/minus.1d66b739016534ac006083b9dba39a0e.svg",
+    "main.34a82970.js.map": "/bookstore/static/js/main.34a82970.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.34a82970.js"
+  ]
+}
