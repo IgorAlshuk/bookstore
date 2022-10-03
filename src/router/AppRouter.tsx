@@ -10,7 +10,7 @@ import { Register } from "../pages/Register";
 import { SearchBooks } from "../pages/SearchBooks";
 import { SignIn } from "../pages/SignIn";
 
-import { routes } from "../router/routes";
+import { routes } from "../routes/routes";
 
 export const AppRouter = () => {
   return (
@@ -21,7 +21,7 @@ export const AppRouter = () => {
         <Route path={routes.SEARCH} element={<SearchBooks />} />
         <Route path={routes.FAVORITES} element={<FavoritesBooks />} />
         <Route path={routes.CART} element={<CartBooks />} />
-        <Route path={routes.ACCOUNT} element={<Account />} />
+        <Route path={routes.ACCOUNT} element={<Account />}/>
         <Route path={routes.SIGN_IN} element={<SignIn />} />
         <Route path={routes.SIGN_UP} element={<Register />} />
         <Route path={routes.NOT_FOUND} element={<NotFound />} />

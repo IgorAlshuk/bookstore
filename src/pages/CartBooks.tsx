@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton/BackButton";
 import { CartList } from "../components/CartList/CartList";
 import { Title } from "../components/Title/Title";
-import { routes } from "../router/routes";
+import { routes } from "../routes/routes";
 import { RootState } from "../store/store";
 
 export const CartBooks = () => {

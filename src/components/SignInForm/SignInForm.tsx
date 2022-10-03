@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../router/routes";
+import { routes } from "../../routes/routes";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   Block,

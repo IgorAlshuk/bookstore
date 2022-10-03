@@ -26,7 +26,7 @@ export const Home = () => {
   return (
     <>
       <BookSlider books={books} />
-      <Title>huge library at your disposal</Title>
+      <Title>library at your disposal</Title>
       <BookList books={books} />
       <Subscribe />
     </>
