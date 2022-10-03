@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../router/routes";
+import { routes } from "../../routes/routes";
 import { setUser, setUserName } from "../../store/slices/userSlice";
 import {
   Block,

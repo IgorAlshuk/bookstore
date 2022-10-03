@@ -27,13 +27,13 @@ export const SearchBooks = () => {
     return <Loading />;
   }
   if (status === "error") {
-    return <Title>We have some Problems. See you later 😒</Title>;
+    return <Title>Had some problems 😒</Title>;
   }
 
   return (
     <>
       <BackButton onClick={handleBack} />
-      <Title> Search results: "{title}"</Title>
+      <Title> Search results🫡: "{title}"</Title>
       <BookList books={books ? books : []} />
       <Pagination />
     </>

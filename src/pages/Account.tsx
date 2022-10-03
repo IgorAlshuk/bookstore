@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton/BackButton";
 import { Profile } from "../components/Profile/Profile";
 import { Title } from "../components/Title/Title";
-import { routes } from "../router/routes";
+import { routes } from "../routes/routes";
 import { RootState } from "../store/store";
 
 export const Account = () => {

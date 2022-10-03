@@ -29,13 +29,11 @@ const LeoBorderOne = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgb(63, 249, 220);
-  background: linear-gradient(
-    0deg,
-    rgba(63, 249, 220, 0.1) 33%,
-    rgba(63, 249, 220, 1) 100%
-  );
-  animation: ${spin3D} 1.8s linear 0s infinite;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, 
+  rgba(9,121,12,1) 33%, 
+  rgba(0,212,255,1) 100%);
+  animation: ${spin3D} 2s linear 0s infinite;
 `;
 
 const LeoCoreOne = styled.div`
@@ -54,11 +52,12 @@ const LeoBorderTwo = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgb(251, 91, 83);
+  background: rgb(2,0,36);
   background: linear-gradient(
-    0deg,
-    rgba(251, 91, 83, 0.1) 33%,
-    rgba(251, 91, 83, 1) 100%
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 33%,
+	 rgba(0, 212, 255, 1) 100%
   );
   animation: ${spin3D} 2.2s linear 0s infinite;
 `;

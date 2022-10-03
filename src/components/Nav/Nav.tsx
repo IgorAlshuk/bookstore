@@ -1,4 +1,4 @@
-import { routes } from "../../router/routes";
+import { routes } from "../../routes/routes";
 import { useAppSelector } from "../../store/hooks/hooks";
 import { getCartInfo } from "../../store/selectors/cartSelectors";
 import { getUserInfo } from "../../store/selectors/userSelectors";
